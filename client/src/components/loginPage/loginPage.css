@@ -1,0 +1,12 @@
+.login-section{
+    width:500px;
+    margin: auto;
+}
+
+div.main{
+    max-width: 1600px;
+}
+
+.login-section .btn {
+    position: inherit;
+}

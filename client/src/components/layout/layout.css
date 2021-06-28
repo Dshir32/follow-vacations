@@ -1,0 +1,29 @@
+.Header{
+    text-align: center;
+    letter-spacing: 0.5rem;
+    padding: 30px;
+    background-color: #d7c632;
+    margin-top: 80px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    font-size: large;
+    background-color: #d7c632;
+    margin-top: 25px;
+}
+
+.main-container {
+    min-height: 600px;
+}
+
+nav.navbar {
+    height:80px
+}
+
+nav.navbar a {
+    color :black;
+    font-size: large;
+    font-weight: bold;
+}

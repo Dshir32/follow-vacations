@@ -1,0 +1,15 @@
+.register-page {
+    margin:auto;
+    width:500px
+}
+
+.register-page p{
+    margin:0px;
+}
+.error {
+    color: red;
+}
+
+.register-page .btn {
+    position: inherit;
+}
