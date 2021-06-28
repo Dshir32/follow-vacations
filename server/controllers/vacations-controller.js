@@ -85,7 +85,7 @@ router.post('/delete-vacation', async (req, res) => {
 router.post('/unfollow-vacation', isLoggedIn, async (req, res) => {
     try {
         const { userId, vacationId } = req.body
-        vacationLogic.unFollowVacation(userId, vacationId)
+        await vacationLogic.unFollowVacation(userId, vacationId)
         const followedVacations = await vacationLogic.getUserVacations(userId);
         const unFollowedVacations = await vacationLogic.getVacationUserNotFollowing(userId);
         res.status(200).send({followedVacations, unFollowedVacations});
@@ -98,7 +98,7 @@ router.post('/unfollow-vacation', isLoggedIn, async (req, res) => {
 router.post('/follow-vacation', isLoggedIn, async (req, res) => {
     try {
         const { userId, vacationId } = req.body;
-        vacationLogic.followVacation(userId, vacationId);
+        await vacationLogic.followVacation(userId, vacationId);
         const followedVacations = await vacationLogic.getUserVacations(userId);
         const unFollowedVacations = await vacationLogic.getVacationUserNotFollowing(userId);
         res.status(200).send({followedVacations, unFollowedVacations});
