@@ -52,7 +52,6 @@ export class LoginPage extends Component<any, LoginState>{
             const { userName, password } = this.state;
             if (userName && password !== "") {
                 const response = await API.post(Config.serverUrl + "/auth/login", { userName, password });
-                console.log(response);
 
                 if (response.status === 200) {
                     store.dispatch({ type: ActionType.login, payload: response.data });

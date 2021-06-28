@@ -171,7 +171,6 @@ export class Admin extends Component<any, VacationsState> {
     public deleteVacation = async (vacationId) => {
         try {
             const response = await API.post(Config.serverUrl + "/api/delete-vacation", { vacationId }, { withCredentials: true });
-            console.log(response.data);
             const vacationResponse = await API.get<VacationModel[]>( Config.serverUrl + "/api/vacations", { withCredentials: true });
             const vacations = vacationResponse.data;
             store.dispatch({ type: ActionType.getAllVacations, payload: vacations });
