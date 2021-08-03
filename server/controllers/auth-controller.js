@@ -1,6 +1,5 @@
 const express = require("express");
 const authLogic = require("../business-logic/auth-logic");
-const vacationLogic = require("../business-logic/vacation-logic");
 const router = express.Router();
 const isLoggedIn = require('../middleware/is-logged-in');
 
@@ -45,7 +44,7 @@ router.get('/get-user', (req, res) => {
     } else {
         res.status(205).send('not logged in')
     }
-})
+});
 
 router.post("/logout", isLoggedIn, async (request, response) => {
     try {

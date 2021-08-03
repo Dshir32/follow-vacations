@@ -37,8 +37,7 @@ app.use("*", (request,response) => {
 
 const port =  process.env.PORT || 3000;
 // Serving express app - uploading it to the air but getting back listener object
-app.listen(port, () => console.log(`listening on port ${port}`));
-
+app.listen(port, () => console.log(`listening on port ${port}, Go to http://localhost:${port}`));
 
 
 
