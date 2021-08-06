@@ -14,9 +14,11 @@ import { Config } from "../../config";
 export class Layout extends Component {
 
     private unsubscribeStore: Unsubscribe;
-    state = {
-        userId: Number,
-    };
+
+    // state = {
+    //     userId: Number,
+    // };
+
     public constructor(prop: any) {
         super(prop);
         this.state = {
@@ -24,11 +26,13 @@ export class Layout extends Component {
         }
         this.unsubscribeStore = store.subscribe(() => {
             const userId = store.getState().userId;
-            this.setState({ userId });
+            if(userId) {
+                this.setState({ userId });
+            }
         });
     }
 
-    public async componentDidMount() {
+    public async componentDidlMount() {
         try{
             const userId = store.getState().userId;
             this.setState({ userId });

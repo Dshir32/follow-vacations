@@ -7,11 +7,11 @@ import { Unsubscribe } from "redux";
 import API from '../../api'
 import { Config } from "../../config";
 
-interface userVacationsState {
+interface UserNotFollowingVacationsState {
     userNotFollowVacations: VacationModel[];
 }
 
-export class UserNotFollowingVacations extends Component<any,userVacationsState>{
+export class UserNotFollowingVacations extends Component<any,UserNotFollowingVacationsState>{
     
     private unsubscribeStore: Unsubscribe;
 
@@ -66,7 +66,7 @@ export class UserNotFollowingVacations extends Component<any,userVacationsState>
                 {this.state.userNotFollowVacations.map(v => 
                     <div className="vacation-card" key={v.vacationId}>
                         <div className="followCheck">
-                            <label>FOLLOW  </label>
+                            <label className="follow-label">FOLLOW  </label>
                             <input type="checkbox" onClick={() => this.followVacation(v.vacationId)}></input>
                         </div>
                         <p className="location">{v.destination}</p>

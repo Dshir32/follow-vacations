@@ -24,7 +24,6 @@ export class UserVacations extends Component<any, userVacationsState> {
             const userVacations = store.getState().userVacations;
             this.setState({ userVacations });
         }); 
-
     }
 
     public async componentDidMount() {
@@ -64,7 +63,7 @@ export class UserVacations extends Component<any, userVacationsState> {
                 {store.getState().userVacations.map(v => 
                     <div className="vacation-card" key={v.vacationId}>
                         <div className="followCheck">
-                            <label>Follow</label>
+                            <label className="follow-label">Follow</label>
                             <input type="checkbox" defaultChecked onClick={() => this.unFollowVacation(v.vacationId)}></input>
                         </div>
                         <p className="location">{v.destination}</p>

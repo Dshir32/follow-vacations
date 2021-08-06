@@ -8,8 +8,8 @@ export class AppState {
     public vacations:VacationModel[];
     public unFollowedVacations:VacationModel[];
     public constructor(){
-        this.vacations = new Array();
-        this.unFollowedVacations = new Array();
-        this.userVacations = new Array();
+        this.vacations = [];
+        this.unFollowedVacations = [];
+        this.userVacations = [];
     }
 } 

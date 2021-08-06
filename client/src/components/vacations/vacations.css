@@ -5,6 +5,9 @@ div.error {
     width: 320px;
     margin:auto;
 } 
+label.follow-label{
+    margin-right: 5px;
+}
 
 div .error {
     color: red;
@@ -15,7 +18,7 @@ div.vacations {
     max-width: 1331px;
 }
 .vacation-card { 
-    border: 1px solid black;
+    border: 3px solid black;
     background-color: rgb(221, 223, 226);
     display: inline-block;
     width: 400px;
@@ -28,14 +31,24 @@ div.vacations {
     border-radius: 15px;
 }
 
+.vacation-card:hover {
+    background-color: rgb(237 238 241);
+}
+
+.vacation-card p , div.followCheck {
+    font-family: cursive;
+}
+
 .vacation-card p.location {
     font-size: x-large;
     text-align: center;
+    font-family: fantasy;
 }
 
 .vacation-card p.description {
     font-size: medium;
     text-align: center;
+    font-family: cursive;
 }
 
 h3 {
@@ -59,37 +72,48 @@ div.img-container p {
     margin: 0px;
 }
 div.img-container img {
-    height: 250px;
+    height: 200px;
     width:100%;
-
+    border-radius: 10px;
 }
 .popup {
     position: fixed;
     width: 100%;
-    height: 50%;
+    height:60%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0,0,0, 0.6);
     z-index: 1001;
+    animation: fadingIn 1s;
   }
   .popup_inner {
     position: absolute;
-    left: 25%;
+    width:500px; height:250px;
+    left: 50%;
     top: 25%;
+    transform: translateX(-50%);
     bottom: 25%;
-    margin: auto;
-    background: white;
-    z-index: 1001;
-    padding: 25px;
-    background:pink;
-    
+    padding: 30px;
+    background-color :rgb(238, 145, 135);
+    border-radius: 10px;
   }
-
-  .popup_inner button {
+  @keyframes fadingIn {
+    from {background-color: rgba(0,0,0, 0.1);}
+    to {background-color: rgba(0,0,0, 0.6); }
+  } 
+  .popup_inner button.close-me {
     position: absolute;
     bottom:15%;
     right: 8%;
+    border-radius: 5px;
+  }
+
+  .popup_inner button.login {
+    position: absolute;
+    bottom:15%;
+    left: 8%;
+    border-radius: 5px;
   }

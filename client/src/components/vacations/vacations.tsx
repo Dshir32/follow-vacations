@@ -5,31 +5,36 @@ import { store } from "../../redux/store";
 import { Unsubscribe } from "redux";
 import API from '../../api';
 import { Config } from "../../config";
-// import io from "socket.io-client";
-// import { ActionType } from "../../redux/action-type";
 
-class Popup extends Component {
+
+class Popup extends Component<any> {
     props: any;
+
+    public goToLogin(){
+        window.location.href = "/login";
+    }
+
     render() {
       return (
         <div className='popup'>
           <div className='popup_inner'>
             <h1>{this.props.text}</h1>
-            <button onClick={this.props.closePopup}>Close me</button>
+            <button className="close-me" onClick={this.props.closePopup}>Close me</button>
+            <button className="login" onClick={this.goToLogin}>Login</button>
           </div>
         </div>
       );
     }
-  }
+
+}
 
 interface VacationsState{
     vacations: VacationModel[];
-    userVacations: VacationModel[];
+    // userVacations: VacationModel[];
     showPopup : boolean;
 }
 
 export class Vacations extends Component<any, VacationsState> {
-    // public socket = io("http://localhost:3000");
 
     private unsubscribeStore: Unsubscribe;
 
@@ -37,24 +42,15 @@ export class Vacations extends Component<any, VacationsState> {
         super(props);
         this.state = {
             vacations:[],
-            userVacations:[],
+            // userVacations:[],
             showPopup: false,
         }    
          
-
-        this.unsubscribeStore = store.subscribe(() => {
-            const userVacations = store.getState().userVacations;
-            this.setState({ userVacations });
-        });
-
-        // this.socket.on('connect', () => {
-        //     this.socket.emit(`ready`, `I'm real bot!!!`);
-
-        //     this.socket.on('server-msg', data => alert(data));
-        //     this.socket.on('vacation-update', vacations => {
-        //         alert('I received a vacation update');
-        //        store.dispatch({type: ActionType.deleteVacation, payload: vacations});
-        //     });
+        // this.unsubscribeStore = store.subscribe(() => {
+        //     const userVacations = store.getState().userVacations;
+        //     if(userVacations) {
+        //         this.setState({ userVacations });
+        //     }
         // });
     }  
 
@@ -66,13 +62,13 @@ export class Vacations extends Component<any, VacationsState> {
             this.setState({ vacations }); 
         }
         catch(err){
-            alert(err.message);
+            console.log(err.message);
         }
     }
 
-    public componentWillUnmount(): void {
-        this.unsubscribeStore(); // Store-הפסק להאזין לשינויים של ה
-    }
+    // public componentWillUnmount(): void {
+    //     this.unsubscribeStore(); // Store-הפסק להאזין לשינויים של ה
+    // }
 
     public togglePopup() {
         const allInputs = document.querySelectorAll('input');
@@ -86,14 +82,14 @@ export class Vacations extends Component<any, VacationsState> {
         return(
             <React.Fragment>
             {this.state.showPopup ? <Popup 
-                text='You have to be logged in to follow vacations'
+                text='   To follow vacations please log in . . .   '
                 closePopup = {this.togglePopup.bind(this)}/> : null}
             
             <div className="vacations">
                 {this.state.vacations.map(v => 
                     <div className="vacation-card" key={v.vacationId}>
                         <div className="followCheck">
-                            <label>FOLLOW  </label>
+                            <label className="follow-label">FOLLOW  </label>
                             <input id={v.destination} type="checkbox" onClick={this.togglePopup.bind(this)}></input>
                         </div>
                         <p className="location">{v.destination}</p>

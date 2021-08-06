@@ -160,7 +160,7 @@ export class Admin extends Component<any, VacationsState> {
                 const response = await API.post<VacationModel>(Config.serverUrl + "/api/vacations", this.state.vacation, { withCredentials: true });
                 const addedVacation = response.data;
                 store.dispatch({ type: ActionType.addVacation, payload: addedVacation });
-                alert("Vacation added...");
+                console.log("Vacation added...");
             }
             catch (err) {
                 alert("Error: " + err.message);
@@ -170,7 +170,7 @@ export class Admin extends Component<any, VacationsState> {
 
     public deleteVacation = async (vacationId) => {
         try {
-            const response = await API.post(Config.serverUrl + "/api/delete-vacation", { vacationId }, { withCredentials: true });
+            await API.post(Config.serverUrl + "/api/delete-vacation", { vacationId }, { withCredentials: true });
             const vacationResponse = await API.get<VacationModel[]>( Config.serverUrl + "/api/vacations", { withCredentials: true });
             const vacations = vacationResponse.data;
             store.dispatch({ type: ActionType.getAllVacations, payload: vacations });
@@ -178,6 +178,10 @@ export class Admin extends Component<any, VacationsState> {
             alert(err);
         }
     }
+
+    // public editVacation = async (vacationId) => {
+    //     alert('edit was clicked')
+    // }
 
     public render() {
         return (
@@ -222,6 +226,7 @@ export class Admin extends Component<any, VacationsState> {
                         <img src={"/assets/images/" + v.vacationImg} alt="vacation-Pic" />
                         </div>
                         <button className="delete" onClick={() => this.deleteVacation(v.vacationId)}>Delete vacation</button>
+                        {/* <button className="edit" onClick={() => this.editVacation(v)}>Edit vacation</button> */}
                         <br />
                     </div>
                 )}

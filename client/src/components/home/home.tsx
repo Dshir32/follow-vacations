@@ -25,7 +25,6 @@ export class Home extends Component<any, userVacationsState> {
 
     public async componentDidMount() {
         try {
-            const id = store.getState().userId;
             const responseUser = await API.get(Config.serverUrl + '/auth/get-user')
             store.dispatch({type: ActionType.getUser, payload: responseUser.data});
         } catch (err) {

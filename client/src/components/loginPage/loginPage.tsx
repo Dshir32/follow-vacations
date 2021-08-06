@@ -24,8 +24,8 @@ export class LoginPage extends Component<any, LoginState>{
     public constructor(prop: any) {
         super(prop);
         this.state = {
-            userName: " ",
-            password: " ",
+            userName: "",
+            password: "",
             userId: null,
             errors: {
                 loginError: "",

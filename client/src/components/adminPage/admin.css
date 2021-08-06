@@ -19,6 +19,18 @@
     position: absolute;
     right: 20px;
     bottom: 10px;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.edit {
+    align-content: end;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    border-radius: 5px;
+    height: 40px;
+    width: 110px;
 }
 
 .insert.vacation-card , .vacation-card{

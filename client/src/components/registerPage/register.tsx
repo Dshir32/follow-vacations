@@ -114,8 +114,8 @@ export class RegisterPage extends Component<any, RegisterState>{
             else {
             const registeredUser = response.data;
             store.dispatch({type: ActionType.register, payload:registeredUser});
-            alert("You have been registered...");
-            this.props.history.push("/home")
+            // alert("You have been registered...");
+            this.props.history.push("/login");
             }
         }
         catch(err) {
