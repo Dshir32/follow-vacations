@@ -4,7 +4,7 @@ export class Config {
 
     public static _initialize() {
         if(process.env.NODE_ENV === "production") {
-            Config.serverUrl = "https://shir-vacation-project.herokuapp.com";
+            Config.serverUrl = "https://anywhere-you-wanna-go.herokuapp.com";
         }
         else {
             Config.serverUrl = "http://localhost:3000";
