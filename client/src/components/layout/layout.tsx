@@ -46,8 +46,13 @@ export class Layout extends Component {
     }
 
     public async logout() {
-        await api.post(Config.serverUrl + '/auth/logout')
-        window.location.href = "http://localhost:3001";
+        await api.post(Config.serverUrl + '/auth/logout');
+        console.log("client url is " + Config.serverUrl);
+        if(Config.serverUrl === "https://anywhere-you-wanna-go.herokuapp.com"){
+            window.location.href = "https://anywhere-you-wanna-go.herokuapp.com";
+        }else {
+            window.location.href = "http://localhost:3001";
+        }
     }
 
     public render() {

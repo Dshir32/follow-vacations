@@ -1,8 +1,8 @@
 {
     "mysql": {
         "host": "eu-cdbr-west-01.cleardb.com",
-        "user": "bb05af0e9780f1",
-        "password": "7f7e604b",
-        "database": "heroku_7c2ab9b1c0da246"
+        "user": "b346f220025a78",
+        "password": "ab518237",
+        "database": "heroku_3016d15e05f5ab5"
     }
 }
