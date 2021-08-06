@@ -2,7 +2,7 @@
 
 Allow users to register and login for following vacations and unfollow them.
 Admin user can see statistics for all vacations, add new vacation and/or delete a vacation.
-For admin login info contact me at dshir27@gmail.com
+For admin login details contact me at dshir27@gmail.com
 
 Server:
 mySql
