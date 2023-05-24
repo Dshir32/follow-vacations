@@ -1,4 +1,4 @@
-# follow-vacations
+# FollowVacations
 
 Allow users to register and login for following vacations and unfollow them.
 Admin user can see statistics for all vacations, add new vacation and/or delete a vacation.
